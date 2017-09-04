@@ -26,7 +26,11 @@ if (command==='add'){
         console.log('Title taken')
     }
 }else if(command==='list'){
-    notes.getAll();
+    // notes.getAll();
+    var allNotes = notes.getAll();
+    allNotes.forEach(function(note) {
+        notes.logNote(note);
+    }, this);
 }else if(command==='read'){
     var readNote = notes.getNote(yargArgv.title);
     if(readNote){

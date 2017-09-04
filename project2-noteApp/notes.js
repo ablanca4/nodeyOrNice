@@ -45,7 +45,7 @@ var addNote = (title, body) => {
 var getAll = () =>{
     var noteArr  = getNoteArray();
 
-    noteArr.filter((note)=>console.log(note.title));
+    return noteArr;
 };
 
 var getNote = (title) => {
