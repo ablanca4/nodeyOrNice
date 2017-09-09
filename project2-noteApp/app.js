@@ -1,5 +1,3 @@
-console.log('Starting app.js');
-
 const _ = require('lodash');
 const yargs = require('yargs');
 //pulling in the notes.js into the app.js and setting it to notes var.
@@ -11,26 +9,48 @@ const notes = require('./notes.js');
 // '/Users/aaronblancaflor/Desktop/NodeCourse/project2-noteApp/app.js',
 // 'foo',
 // 'bar' ]
+const titleOptions = {
+    describe: 'Title of note',
+    demand: true,
+    alias: 't'
+};
 
+const bodyOptions = {
+    describe: 'the body of the note',
+    demand: true,
+    alias: 'b' 
+ };
 // grabbing all the command line arguments sing yargs
-var yargArgv = yargs.argv;
+var yargArgv = yargs.
+command('add', 'Add a new note',{
+    title: titleOptions,
+    body: bodyOptions
+})
+.command('list', 'lists all of the notes')
+.command('read', 'Read a note',{
+    title: titleOptions
+})
+.command('remove','Deletes a note',{
+    title: titleOptions
+})
+.help()
+.argv;
 var command = yargArgv._[0];
 
 
 if (command==='add'){
     var note = notes.addNote(yargArgv.title, yargArgv.body);
-    //prints success message if note variable is true
     if (note){
         notes.logNote(note);
     }else{
         console.log('Title taken')
     }
 }else if(command==='list'){
-    // notes.getAll();
+
     var allNotes = notes.getAll();
-    allNotes.forEach(function(note) {
+    allNotes.forEach((note)=> {
         notes.logNote(note);
-    }, this);
+    });
 }else if(command==='read'){
     var readNote = notes.getNote(yargArgv.title);
     if(readNote){
