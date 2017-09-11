@@ -4,7 +4,8 @@
   "description": "This weather app will be an asynchronous app that communicates with \r third party API. (Google API, Weather API).",
   "main": "app.js",
   "dependencies": {
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "yargs": "^4.8.1"
   },
   "devDependencies": {},
   "scripts": {
