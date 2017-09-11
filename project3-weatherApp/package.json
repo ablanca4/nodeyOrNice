@@ -1,0 +1,15 @@
+{
+  "name": "project3-weatherapp",
+  "version": "1.0.0",
+  "description": "This weather app will be an asynchronous app that communicates with \r third party API. (Google API, Weather API).",
+  "main": "app.js",
+  "dependencies": {
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
